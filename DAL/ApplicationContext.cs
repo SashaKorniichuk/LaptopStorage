@@ -10,11 +10,10 @@
         public ApplicationContext()
             : base("name=ApplicationContext")
         {
+            Database.SetInitializer(new LaptopInitializer());
         }
         public DbSet<Developer> Developers { get; set; }
-        public DbSet<Type> Types { get; set; }
+        public DbSet<LaptopType> LaptopTypes { get; set; }
         public DbSet<Laptop> Laptops { get; set; }
     }
-
-  
 }
