@@ -12,25 +12,26 @@ namespace DAL
     {
         protected override void Seed(ApplicationContext context)
         {
-
-            var dev1 = new Developer()
+            //add items...
+            var devs = new List<Developer>
             {
-                Name = "Lenovo"
+                new Developer(){Name="Lenovo"},
             };
 
-            var LaptopType = new LaptopType()
+            var laptops = new List<Laptop>
             {
-                Name = "Gaming"
+                new Laptop(){Name="Gaming Laptop x15"},
+           
             };
 
-            var Laptop = new Laptop()
+            var types = new List<LaptopType>
             {
-                Name = "Gaming Laptop x15"
+                new LaptopType(){Name="Gaming"},
             };
 
-            context.Developers.Add(dev1);
-            context.LaptopTypes.Add(LaptopType);
-            context.Laptops.Add(Laptop);
+            context.Developers.AddRange(devs);
+            context.LaptopTypes.AddRange(types);
+            context.Laptops.AddRange(laptops);
             context.SaveChanges();
 
             base.Seed(context);

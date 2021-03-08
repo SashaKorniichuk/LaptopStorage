@@ -12,6 +12,6 @@ namespace BLL.Interfaces
         IEnumerable<Laptop> GetAllLaptops();
         IEnumerable<LaptopType> GetAllTypes();
         IEnumerable<Developer> GetAllDevelopers();
-        Task AddLaptop(Laptop laptop);
+        Task AddLaptopAsync(Laptop laptop);
     }
 }

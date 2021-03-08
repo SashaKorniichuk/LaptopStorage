@@ -8,9 +8,9 @@ namespace DAL.Repository.Interface
 {
    public interface IGenericRepository<TEntity> where TEntity:class
     {
-        Task Create(TEntity entity);
-        void Update(TEntity entity);
-        void Delete(int id);
+        Task CreateAsync(TEntity entity);
+        Task UpdateAsync(TEntity entity);
+        Task DeleteAsync(int id);
         IEnumerable<TEntity> GetAll();
 
         TEntity Get(int id);

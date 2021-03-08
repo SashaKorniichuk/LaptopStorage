@@ -21,20 +21,28 @@ namespace DAL.Repository
             _set = _dBContext.Set<TEntity>();
         }
 
-        public async Task Create(TEntity entity)
+        public async Task CreateAsync(TEntity entity)
         {
             _set.Add(entity);
-            await _dBContext.SaveChangesAsync();
+            await SaveAsync();
         }
 
-        public void Delete(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var entity=_set.Find(id);
+            _set.Remove(entity);
+            await SaveAsync();
+
+
+        }
+        private async Task SaveAsync()
+        {
+            await _dBContext.SaveChangesAsync();
         }
 
         public TEntity Get(int id)
         {
-            throw new NotImplementedException();
+            return _set.Find(id);
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -42,9 +50,10 @@ namespace DAL.Repository
             return _set.AsEnumerable();
         }
 
-        public void Update(TEntity entity)
+        public async Task UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dBContext.Entry(entity).State = EntityState.Modified;
+            await SaveAsync();
         }
     }
 }
