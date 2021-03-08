@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99F28B1A-D7D5-4813-AF53-22825A85431E}</ProjectGuid>
+    <ProjectGuid>{78274BF0-1658-47F0-B84D-1E83225CCBB9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StoreUI.Tests</RootNamespace>
@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StoreUI\StoreUI.csproj">
-      <Project>{4F8F13CA-DF2D-4EC1-99B5-355AC2633060}</Project>
+      <Project>{F6E962D7-E2EB-4128-9DE0-9A9EF54DAB0D}</Project>
       <Name>StoreUI</Name>
     </ProjectReference>
   </ItemGroup>
