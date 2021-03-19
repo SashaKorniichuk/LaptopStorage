@@ -1,0 +1,14 @@
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\DAL.dll.config
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\DAL.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\DAL.pdb
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\EntityFramework.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\EntityFramework.xml
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\ru\EntityFramework.resources.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\obj\Debug\DAL.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\DAL\obj\Debug\DAL.pdb

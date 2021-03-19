@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using BLL.DTO;
+using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace BLL.Interfaces
 {
    public interface ILaptopService
     {
-        IEnumerable<Laptop> GetAllLaptops();
-        IEnumerable<LaptopType> GetAllTypes();
-        IEnumerable<Developer> GetAllDevelopers();
-        Task AddLaptopAsync(Laptop laptop);
+        IEnumerable<LaptopDTO> GetAllLaptops();
+        IEnumerable<LaptopTypeDTO> GetAllTypes();
+        IEnumerable<DeveloperDTO> GetAllDevelopers();
+        Task AddLaptopAsync(LaptopDTO laptop);
     }
 }

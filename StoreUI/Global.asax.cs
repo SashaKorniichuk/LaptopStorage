@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoreUI.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +12,10 @@ namespace StoreUI
     {
         protected void Application_Start()
         {
+            AutofacConfiguration.Configurate();
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
         }
     }
 }

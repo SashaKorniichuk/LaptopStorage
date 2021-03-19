@@ -1,0 +1,15 @@
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\BLL.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\BLL.pdb
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\AutoMapper.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\DAL.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\EntityFramework.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\DAL.pdb
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\DAL.dll.config
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\AutoMapper.xml
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\EntityFramework.xml
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\bin\Debug\ru\EntityFramework.resources.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\obj\Debug\BLL.dll
+C:\D\Саша\ASP.NET\Homework1\Storage\BLL\obj\Debug\BLL.pdb

@@ -1,4 +1,6 @@
-﻿using BLL.Interfaces;
+﻿using AutoMapper;
+using BLL.DTO;
+using BLL.Interfaces;
 using DAL.Entities;
 using DAL.Repository.Interface;
 using System;
@@ -14,32 +16,49 @@ namespace BLL.Implementation
         private readonly IGenericRepository<Laptop> _laptopRepository;
         private readonly IGenericRepository<Developer> _developerRepository;
 
-        private readonly IGenericRepository<LaptopType> _laptopTyperRepository;
+        private readonly IGenericRepository<LaptopType> _laptopTypeRepository;
 
         public LaptopService(IGenericRepository<Laptop> laptopRepository,
         IGenericRepository<Developer> developerRepository, IGenericRepository<LaptopType> laptopTypeRepository)
         {
             _developerRepository = developerRepository;
             _laptopRepository = laptopRepository;
-            _laptopTyperRepository = laptopTypeRepository;
+            _laptopTypeRepository = laptopTypeRepository;
         }
-        public async Task AddLaptopAsync(Laptop laptop)
+        public async Task AddLaptopAsync(LaptopDTO laptop)
         {
-            await _laptopRepository.CreateAsync(laptop);
+            Laptop l = new Laptop()
+            {
+                Id = laptop.Id,
+                Name = laptop.Name,
+                Processor = laptop.Processor,
+                RAM = laptop.RAM,
+                VideoCard = laptop.VideoCard,
+                Disc = laptop.Disc,
+                Price = laptop.Price,
+                Description = laptop.Description,
+                Image = laptop.Image,
+                Developer = laptop.Developer,
+                LaptopType = laptop.LaptopType
+           };
+           await _laptopRepository.CreateAsync(l);
         }
-        public IEnumerable<Developer> GetAllDevelopers()
+        public IEnumerable<DeveloperDTO> GetAllDevelopers()
         {
-            return _developerRepository.GetAll();
+            var mapper = new MapperConfiguration(x => x.CreateMap<Developer, DeveloperDTO>()).CreateMapper();
+            return mapper.Map<IEnumerable<Developer>, List<DeveloperDTO>>(_developerRepository.GetAll());
         }
 
-        public IEnumerable<Laptop> GetAllLaptops()
+        public IEnumerable<LaptopDTO> GetAllLaptops()
         {
-            return _laptopRepository.GetAll();
+            var mapper = new MapperConfiguration(x => x.CreateMap<Laptop, LaptopDTO>()).CreateMapper();
+            return mapper.Map<IEnumerable<Laptop>, List<LaptopDTO>>(_laptopRepository.GetAll());
         }
 
-        public IEnumerable<LaptopType> GetAllTypes()
+        public IEnumerable<LaptopTypeDTO> GetAllTypes()
         {
-            return _laptopTyperRepository.GetAll();
+            var mapper = new MapperConfiguration(x => x.CreateMap<LaptopType, LaptopTypeDTO>()).CreateMapper();
+            return mapper.Map<IEnumerable<LaptopType>, List<LaptopTypeDTO>>(_laptopTypeRepository.GetAll());
         }
     }
 }
