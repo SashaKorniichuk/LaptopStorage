@@ -12,9 +12,8 @@ namespace DAL.Repository.Interface
         Task UpdateAsync(TEntity entity);
         Task DeleteAsync(int id);
         IEnumerable<TEntity> GetAll();
-
         TEntity Get(int id);
-
+        
 
     }
 }

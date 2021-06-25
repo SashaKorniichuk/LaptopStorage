@@ -1,0 +1,109 @@
+﻿@model  StoreUI.Models.LaptopViewModel
+@{
+    ViewBag.Title = "Details";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container-fluid ">
+        <div class="container ">
+            <div class="row block1 mt-3 pb-3">
+                <div class="col-12">
+                    <div class="col-12 text-center " id="img">
+                        <h1>@Model.Name</h1>
+                        <img src=@Model.Image class="img2" width="500" alt="Alternate Text" />
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-2 text-center">
+                                <h2 class="m-0">
+                                    Processor:
+                                </h2>
+                                <h3 class="m-0">
+                                    @Model.Processor
+
+                                </h3>
+                            </div>
+
+                            <div class="col-2 text-center">
+                                <h2 class="m-0">
+                                    RAM
+                                </h2>
+                                <h3 class="m-0">
+                                    @Model.RAM
+
+                                </h3>
+                            </div>
+
+                            <div class="col-2 text-center">
+                                <h2 class="m-0">
+                                    VideoCard:
+                                </h2>
+                                <h3 class="m-0">
+                                    @Model.VideoCard
+
+                                </h3>
+                            </div>
+
+                            <div class="col-2 text-center">
+                                <h2 class="m-0">
+                                    Disc
+                                </h2>
+                                <h3 class="m-0">
+                                    @Model.Disc
+
+                                </h3>
+                            </div>
+
+                            <div class="col-2 text-center">
+                                <h2 class="m-0">
+                                    Developer
+                                </h2>
+                                <h3 class="m-0">
+                                    @Model.Developer
+
+                                </h3>
+                            </div>
+                            <div class="col-2 text-center">
+                                <h2 class="m-0">
+                                    Type
+                                </h2>
+                                <h3 class="m-0">
+                                    @Model.LaptopType
+
+                                </h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center mt-3 pb-3">
+                <div class="col-12">
+                    <h2>Description:</h2>
+                    <h4>@Model.Description</h4>
+                </div>
+                <div class="col-12">
+                    <div class="row d-flex justify-content-center">
+                        @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+</body>
+
+</html>

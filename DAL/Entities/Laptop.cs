@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities
 {
-  public  class Laptop
+    public class Laptop
     {
         public int Id { get; set; }
         [Required]
@@ -20,13 +20,17 @@ namespace DAL.Entities
         public string VideoCard { get; set; }
         [Required]
         public string Disc { get; set; }
-
+        [Required]
         public double? Price { get; set; }
+        [Required]
         public string Description { get; set; }
+        [Required]
         public string Image { get; set; }
-        [Required]
-        public LaptopType LaptopType { get; set; }
-        [Required]
-        public Developer Developer { get; set; }
+    
+        public int LaptopTypeId { get; set; }
+      
+        public int DeveloperId { get; set; }
+        public virtual LaptopType LaptopType { get; set; }
+        public virtual Developer Developer { get; set; }
     }
 }

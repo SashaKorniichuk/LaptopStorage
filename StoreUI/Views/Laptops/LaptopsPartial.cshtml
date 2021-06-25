@@ -1,0 +1,38 @@
+﻿
+<div class="row mt-4">
+    @foreach (var item in ViewBag.Laptops)
+    {
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+
+            <div class="card  bg border border-primary">
+                <img class="card-img-top img-fluid  rounded partial-image " src=@item.Image />
+                <div class="card-body about-product text-center mt-2 ">
+                    <h3 class="card-title text-warning">@item.Name</h3>
+                    <p class="card-text text-light">Developer: <strong>@item.Developer</strong></p>
+                    <p class="card-text text-light">Type: <strong>@item.LaptopType</strong></p>
+                    <p class="card-text text-light">Price: <strong>@item.Price $ </strong></p>
+                </div>
+                <div class="card-footer row justify-content-between">
+
+                    @if (User.IsInRole("User"))
+                    {
+
+                        @Html.ActionLink("Add to Cart", "AddToCart", new { item.Id }, new { @class = "btn btn-primary col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3" })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3" })
+                    }
+                    else if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { item.Id }, new { @class = "btn btn-danger col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3" })
+                        @Html.ActionLink("Edit", "Edit", new { item.Id }, new { @class = "btn btn-warning col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3" })
+                    }
+
+                </div>
+            </div>
+
+        </div>
+
+    }
+
+
+</div>
+

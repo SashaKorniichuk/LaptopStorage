@@ -1,0 +1,124 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/39c9a805b6.js"></script>
+</head>
+<body>
+    <div class="dashboard-main-wrapper">
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg fixed-top bg border-warning border-bottom dark-shadow">
+                <a class="navbar-brand" href="/Laptops/Index" style="color:black"><img src="~/Images/logo.png" width="50" height="50" />Laptops</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mb-1">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control"
+                                       onkeydown="onSearch(event)"
+                                       type="text" placeholder="Search..">
+                            </div>
+                        </li>
+                        <li class="nav-item">
+
+
+                            @if (User.IsInRole("User"))
+                            {
+
+                                if (@ViewBag.BinCount != null)
+                                {
+                                    if (@ViewBag.BinCount != 0)
+                                    {
+                                        <a class="btn btn-success m-2 mb-0 mr-4" href="@Url.Action("Cart", "Laptops")" style="color:black">
+                                            <i class="fas fa-shopping-cart"></i> Cart (
+                                            <span>@ViewBag.BinCount</span> )
+                                        </a>
+                                    }
+                                }
+                            }
+                            else if (User.IsInRole("Admin"))
+                            {
+                                <a class="btn btn-success m-2 mb-0 mr-4" href="@Url.Action("Orders", "Laptops")" style="color:black">
+                                    <i class="fas fa-shopping-cart"></i> Orders
+                                    @if (@ViewBag.OrdersCount != null)
+                                    {
+
+                                        <span class="counter">@ViewBag.OrdersCount</span>
+
+                                    }
+
+                                </a>
+                            }
+                        </li>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="btn btn-success m-2 mb-0 mr-4" href="/Laptops/Create" style="color:black">                                  
+                                   Add Laptop
+                                </a>
+
+                            </li>
+                        }
+
+                        @if (User.IsInRole("User"))
+                        {
+
+                            <li class="nav-item">
+                                <a class="btn btn-success m-2 mb-0 mr-4" href="@Url.Action("History", "Laptops")" style="color:black">
+                                    <i class="fa fa-history" aria-hidden="true"></i>
+                                    History
+                                </a>
+
+                            </li>
+                        }
+                        <li class="nav-item dropdown">
+
+                            <a class=" m-5  nav-user-img" href="#" id="navbarDropdownMenuLink2" style="color:black" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user mt-2 pt-1 " style="font-size:30px"> @User.Identity.Name</i></a>
+                            <div class="dropdown-menu  nav-user-dropdown" style="color:black" aria-labelledby="navbarDropdownMenuLink2">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+
+                                    <div class="nav-user-info" style="color:black">
+                                        <h5 class="mb-0 text-white nav-user-name">@User.Identity.Name </h5>
+                                        <span class="status"></span><span class="ml-2">
+                                            Available
+                                            @if (User.IsInRole("Admin"))
+                                            {
+                                                <i class="fas fa-users-cog"></i>
+                                            }
+                                        </span>
+                                    </div>
+                                }
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a class=" btn btn-success w-100 text-left" style="color:black" href="@Url.Action("Logout", "Account")"><i class="fas fa-power-off  "></i> Logout</a>
+                                }
+                                else
+                                {
+                                    <a class=" btn btn-success w-100 text-left" style="color:black" href="@Url.Action("Login", "Account")"><i class="fas fa-power-off "></i> Sign in</a>
+                                    <a class=" btn btn-warning w-100 text-left" style="color:black" href="@Url.Action("Register", "Account")"><i class="fas fa-power-off "></i> Sign up</a>
+                                }
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    @RenderBody()
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿@using System.Web.Optimization
+@model IEnumerable<DAL.Entities.CartItem>
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@Styles.Render("~/Content/css")
+<div class="container mt-4">
+    <h1>Ваша Корзина</h1>
+    <div class="row">
+
+    <div class="col-9">
+        <style>
+            th, tr, td {
+                border: 1px solid black
+            }
+        </style>
+
+        <table class="table">
+            <tr>
+                <th>
+                    <h3>@Html.DisplayNameFor(model => model.Laptop.Image)</h3>
+                </th>
+
+                <th>
+                    <h3>@Html.DisplayNameFor(model => model.Laptop.Name)</h3>
+                </th>
+              
+                <th>
+                    <h3>@Html.DisplayNameFor(model => model.Laptop.Price)</h3>
+
+                </th>
+                <th>
+                    <h3>Options</h3>
+
+                </th>
+            </tr>
+
+            @foreach (var item in ViewBag.Items)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.Laptop.Image" width="150" />
+                    </td>
+                    <td>
+                        <h3 class="text-danger">@item.Laptop.Name</h3>
+                    </td>
+                  
+                    <td>
+                        <h2 class="text-warning">@item.Laptop.Price $</h2>
+
+                    </td>
+                    <td>
+                            <input class="btn btn-sm btn-danger" type="submit" onclick="DeleteOrder(@item.Id)" value="Удалить" />
+                    </td>
+                </tr>
+            }
+        <tr>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </tr>
+
+        </table>
+    </div>
+    <div class="col-3">
+        <h3 class="text-danger">Your order:</h3>
+        <p>Total amount of items: <span class="text-danger">@ViewBag.Items.Count</span></p>
+        <p>Total price: <span class="text-danger"><span>@ViewBag.Price</span> $</span></p>
+        @if(ViewBag.Items.Count!=0)
+        {
+        @Html.ActionLink("Make Order", "MakeOrder", "", new { @class = "btn btn-primary" })
+        }
+     
+    </div>
+
+    </div>
+</div>
+

@@ -44,6 +44,7 @@ namespace DAL.Repository
         {
             return _set.Find(id);
         }
+      
 
         public IEnumerable<TEntity> GetAll()
         {

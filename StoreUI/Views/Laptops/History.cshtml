@@ -1,0 +1,47 @@
+﻿@model IEnumerable<StoreUI.Models.HistoryViewModel>
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container mt-3">
+    
+<h2>History</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @if (item.State == "Accepted")
+        {
+            <span class="text-success">@item.State</span>
+        }
+        else
+        {
+            <span class="text-danger">@item.State</span>
+        }
+    </td>
+    <td>
+
+        @Html.ActionLink("Details", "OrderDetails", new { id = item.Id },new {@class="btn btn-success"}) 
+
+    </td>
+</tr>
+}
+
+</table>
+
+</div>

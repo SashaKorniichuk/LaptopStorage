@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BLL.DTO.CartDTO>
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container mt-3">
+
+<h2>Orders</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @if (item.State=="Accepted")
+            {
+                <span class="text-success">@item.State</span>
+            }
+            else
+            {
+                <span class="text-danger">@item.State</span>
+            }       
+        </td>
+      
+        <td>
+            @if(item.State!="Accepted")
+            {
+            @Html.ActionLink("Accept", "AcceptOrder", new { id=item.Id }, new { @class = "btn btn-success" }) <span>|</span>
+            @Html.ActionLink("Deny", "DenyOrder", new { id=item.Id },new {@class="btn btn-danger" })<span>|</span>
+            }
+            @Html.ActionLink("Details", "OrderDetails", new { id=item.Id }, new { @class = "btn btn-warning" }) 
+        </td>
+    </tr>
+}
+
+</table>
+</div>

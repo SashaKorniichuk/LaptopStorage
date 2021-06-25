@@ -1,0 +1,51 @@
+﻿@using System.Web.Optimization
+@model StoreUI.Models.RegisterUserViewModel
+@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+
+<div class="container">
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+         @Html.AntiForgeryToken();
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="mb-1">Registrations Form</h3>
+            <p>Please enter your user information.</p>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="card-body">
+            <div class="form-group">
+
+                <input class="form-control form-control-lg" type="text" name="username" required="" placeholder="Username" autocomplete="off">
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+
+                <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="E-mail" autocomplete="off">
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control-lg" id="pass1" type="password" name="password" required="" placeholder="Password">
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control-lg" required="" type="password" name="confirmpassword" placeholder="Confirm">
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group pt-2">
+                <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
+            </div>
+        </div>
+        <div class="card-footer bg-white">
+            <p>Already member? <a href="@Url.Action("Login", "Account")" class="text-secondary">Login Here.</a></p>
+        </div>
+    </div>}
+</div>
+
